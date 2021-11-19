@@ -1,0 +1,24 @@
+Baseado em texto em pt
+
+guardar <value> em <var>
+    - valor
+    - variavel
+guardar 2 vezes 3 in <var>
+    - mais
+    - menos
+    - vezes
+    - dividir
+    - resto
+ler <var> (escrever na consola)
+escrever (por no ecra)
+    - valor
+    - variavel
+se <var> igual a 2 entçao
+    - var-var
+    - var-value
+    - value-var
+    - value-value
+(senão)
+fim
+
+! (Comentário)

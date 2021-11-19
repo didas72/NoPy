@@ -1,0 +1,7 @@
+! Teste 
+escrever(insira um numero), <numero1>
+ler numero1
+escrever (insira um numero), <numero2>
+ler numero2
+adicionar numero1 e numero2, <valor>
+escrever valor
