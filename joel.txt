@@ -1,4 +1,6 @@
-guardar 2 em a
-escrever a
-ler b
-escrever b
+escrever 'Insere o primeiro número'
+ler =a
+escrever 'Insere o segundo número'
+ler =b
+guardar =a + =b em =b
+escrever =b

@@ -1,9 +1,13 @@
 def math(parts, variaveis):
     if (parts[0].startswith("=")):
         if (parts[0] in variaveis):
-            val1 = variaveis[parts[0]]
+            try:
+                val1 = float(variaveis[parts[0]])
+            except:
+                print("A variavel", parts[0], "não contem números!")
+                exit()
         else:
-            print("A variavel", parts[0], "não existe.")
+            print("A variavel", parts[0], "não existe!")
             exit()
     else:
         try:
@@ -13,9 +17,13 @@ def math(parts, variaveis):
 
     if (parts[2].startswith("=")):
         if (parts[2] in variaveis):
-            val2 = variaveis[parts[0]]
+            try:
+                val2 = float(variaveis[parts[2]])
+            except:
+                print("A variavel", parts[2], "não contem números!")
+                exit()
         else:
-            print("A variavel", parts[2], "não existe.")
+            print("A variavel", parts[2], "não existe!")
             exit()
     else:
         try:
