@@ -1,0 +1,4 @@
+guardar 2 em a
+escrever a
+ler b
+escrever b

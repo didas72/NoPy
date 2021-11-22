@@ -3,9 +3,6 @@ def loadLines(nomeFicheiro):
         file = open(nomeFicheiro,"r")
         something = file.read().splitlines()
         file.close()
-        print(something)
+        return something
     except:
-        file = []
-        pass
-
-    return file
+        return []
