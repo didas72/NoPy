@@ -5,4 +5,4 @@ def loadLines(nomeFicheiro):
         file.close()
         return something
     except:
-        return []
+        return ["Erro"]

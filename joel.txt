@@ -1,6 +1,29 @@
 escrever 'Insere o primeiro número'
-ler =a
+ler a
 escrever 'Insere o segundo número'
-ler =b
-guardar =a + =b em =b
-escrever =b
+ler b
+guardar a + b em b
+escrever b
+
+se b maior a entao
+    escrever 'C1'
+
+    se a maior 0 entao
+        escrever 'C11'
+    fim
+
+    se a menor 0 entao
+        escrever 'C12'
+    fim
+fim
+! Comentario
+se a maior 0 entao
+    escrever 'C2'
+fim
+
+enquanto a ...                          24 _> stack
+    enquanto a maior 0 entao            25 -> stack
+        guardar a - 1 em a
+        escrever a
+    fim                                 stack -> saltar 25
+fim

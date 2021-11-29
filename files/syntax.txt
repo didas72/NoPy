@@ -13,12 +13,32 @@ ler <var> (escrever na consola)
 escrever (por no ecra)
     - valor
     - variavel
-se <var> igual a 2 entçao
+se <var> igual a 2 entao
     - var-var
     - var-value
     - value-var
     - value-value
-(senão)
-fim
+    //
+    - igual
+    - menor
+    - maior
+    - menor igual
+    - maior igual
+    - diferente
+senão
+fim da condicao
+enquanto <var> igual a 2 entao
+    - var-var
+    - var-value
+    - value-var
+    - value-value
+    //
+    - igual
+    - menor
+    - maior
+    - menor igual
+    - maior igual
+    - diferente
+fim de enquanto
 
 ! (Comentário)
