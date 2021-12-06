@@ -10,20 +10,33 @@ se b maior a entao
 
     se a maior 0 entao
         escrever 'C11'
-    fim
+    fim da condicao
 
     se a menor 0 entao
         escrever 'C12'
-    fim
-fim
-! Comentario
-se a maior 0 entao
-    escrever 'C2'
-fim
+    fim da condicao
+fim da condicao
 
-enquanto a ...                          24 _> stack
-    enquanto a maior 0 entao            25 -> stack
-        guardar a - 1 em a
-        escrever a
-    fim                                 stack -> saltar 25
-fim
+! Comentario
+
+se a maior 0 entao
+    escrever 'APos'
+senao
+    escrever 'ANeg'
+fim da condicao
+
+escrever 'meio'
+
+enquanto a maior 0 entao
+    guardar a - 1 em a
+    escrever 'a'
+    escrever a
+
+    enquanto b maior 0 entao
+        guardar b - 1 em b
+        escrever 'b'
+        escrever b
+    fim de enquanto
+fim de enquanto
+
+sair
