@@ -2,10 +2,8 @@ from ficheiro import loadLines
 
 def runCode(lines):
     if (len(lines) and lines[0] == "Erro"):
-        print("Cannot read file")
+        print("Erro ao ler o ficheiro!")
         exit()
-
-    print("Start with len", len(lines))
 
     variaveis = {}
     linha = 0
@@ -22,7 +20,6 @@ def runCode(lines):
     while (linha < len(lines)):
         parts = []
         remain = lines[linha].strip()
-
         while True:
             if (len(remain) <= 0): break
 
@@ -30,7 +27,7 @@ def runCode(lines):
                 try:
                     strEndIndex = remain[1:len(remain)].index("'")
                     parts.append(remain[0:strEndIndex+2])
-                    remain = remain[strEndIndex+2:len(remain)]
+                    remain = remain[strEndIndex+3:len(remain)]
                 except:
                     print("Tens de fechar sempre as aspas!")
                     exit()
@@ -67,7 +64,7 @@ def runCode(lines):
                         else:
                             nestLevel = -1
                     elif (instruction == "fim"):
-                        if (parts[1] == "da" and parts[2] == "condicao"):
+                        if (parts[1] == "de" and parts[2] == "condicao"):
                             nestLevel = 0
                         elif (parts[1] == "de" and parts[2] == "enquanto"):
                             try:
@@ -91,7 +88,7 @@ def runCode(lines):
                 else:
                     if (nestLevel > 0): #nestLevel de um se
                         if (instruction == "fim"):
-                            if (parts[1] == "da" and parts[2] == "condicao"):
+                            if (parts[1] == "de" and parts[2] == "condicao"):
                                 nestLevel -= 1
                         elif (instruction == "se"):
                             nestLevel += 1
@@ -112,5 +109,5 @@ def runCode(lines):
     print("Fim do programa")
     exit()
 
-lines = loadLines("joel.txt")
+lines = loadLines("")
 runCode(lines)

@@ -26,7 +26,7 @@ se <var> igual a 2 entao
     - maior igual
     - diferente
 senão
-fim da condicao
+fim de condicao
 enquanto <var> igual a 2 entao
     - var-var
     - var-value

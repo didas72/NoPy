@@ -1,0 +1,12 @@
+! soma.txt - Programa que lê dois numeros e escreve a soma deles.
+
+escrever 'Insere o primeiro numero'
+ler a
+
+escrever 'Insere o segundo numero'
+ler b
+
+guardar a mais b em c
+
+escrever 'A soma e'
+escrever c

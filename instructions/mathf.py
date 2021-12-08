@@ -32,7 +32,7 @@ def math(parts, variaveis):
     elif (parts[1] == "vezes" or parts[1] == "*"):
         return val1 * val2
     elif (parts[1] == "dividir" or parts[1] == "/"):
-        return val1 * val2
+        return val1 / val2
     elif (parts[1] == "resto" or parts[1] == "%"):
         return val1 % val2
     elif (parts[1] == "elevado"):

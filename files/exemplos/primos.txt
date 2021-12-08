@@ -1,0 +1,34 @@
+! primos.txt - Programa que verifica se um numero e primo ou nao
+
+! Perguntamos ao usuario qual e o numero que quer verificar
+
+escrever 'Que numero queres verificar se e primo?'
+ler numero
+
+se numero menor 0 entao
+    escrever 'Os numeros negativos nao sao primos.'
+    sair
+fim de condicao
+
+se numero menor 2 entao
+    escrever 'O numero nao e primo.'
+    sair
+fim de condicao
+
+guardar 2 em testar
+
+enquanto testar menor numero entao
+
+    guardar numero resto testar em resto
+
+    se resto igual 0 entao
+        escrever 'O numero nao e primo, e dividivel por:'
+        escrever testar
+        sair
+    fim de condicao
+
+    guardar testar mais 7 em testar
+
+fim de enquanto
+
+escrever 'O numero e primo.'

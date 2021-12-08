@@ -39,4 +39,9 @@ enquanto a maior 0 entao
     fim de enquanto
 fim de enquanto
 
+ler c
+se c diferente 'joel' entao
+    escrever 'd'
+fim de condicao
+
 sair
