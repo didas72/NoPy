@@ -1,8 +1,8 @@
 def se(parts, variaveis):
     parts.pop(0)
 
-    if (len(parts) < 4 or parts[-1] != "entao"):
-        print("Um se tem de ter pelo menos mais tres partes e um entao no fim!")
+    if (len(parts) < 4 or parts[-1] != "entao" or parts[-1] != "então"):
+        print("Um 'se' tem de ter pelo menos mais três partes e um então no fim!")
 
     
     if (parts[0] in variaveis):

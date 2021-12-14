@@ -37,15 +37,15 @@ def math(parts, variaveis):
         return val1 % val2
     elif (parts[1] == "elevado"):
         return pow(val1, val2)
-    elif (parts[1] == "binario_esquerda" or parts[1] == "<<"):
+    elif (parts[1] == "binario_esquerda" or parts[1] == "binário_esquerda" or parts[1] == "<<"):
         return val1 << val2
-    elif (parts[1] == "binario_direita" or parts[1] == ">>"):
+    elif (parts[1] == "binario_direita" or parts[1] == "binário_direita" or parts[1] == ">>"):
         return val1 >> val2
-    elif (parts[1] == "binario_e" or parts[1] == "&"):
+    elif (parts[1] == "binario_e" or parts[1] == "binário_e" or parts[1] == "&"):
         return val1 & val2
-    elif (parts[1] == "binario_ou" or parts[1] == "|"):
+    elif (parts[1] == "binario_ou" or parts[1] == "binário_ou" or parts[1] == "|"):
         return val1 | val2
-    elif (parts[1] == "binario_diferente" or parts[1] == "^"):
+    elif (parts[1] == "binario_diferente" or parts[1] == "binário_diferente" or parts[1] == "^"):
         return val1 ^ val2
     else:
         print(parts[1], "não é uma operação válida!")

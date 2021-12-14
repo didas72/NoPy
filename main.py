@@ -1,5 +1,3 @@
-from ficheiro import loadLines
-
 def runCode(lines):
     if (len(lines) and lines[0] == "Erro"):
         print("Erro ao ler o ficheiro!")
@@ -34,14 +32,14 @@ def runCode(lines):
             else:
                 try:
                     partEndIndex = remain[0:len(remain)].index(" ")
-                    parts.append(remain[0:partEndIndex])
+                    parts.append(remain[0:partEndIndex].casefold())
                     remain = remain[partEndIndex+1:len(remain)]
                 except:
-                    parts.append(remain)
+                    parts.append(remain.casefold())
                     break
 
         if (len(lines[linha]) > 1):
-            instruction = parts[0].casefold()
+            instruction = parts[0]
 
             try:
                 if (nestLevel == 0):
@@ -64,7 +62,7 @@ def runCode(lines):
                         else:
                             nestLevel = -1
                     elif (instruction == "fim"):
-                        if (parts[1] == "de" and parts[2] == "condicao"):
+                        if (parts[1] == "de" and (parts[2] == "condicao" or parts[2] == "condição")):
                             nestLevel = 0
                         elif (parts[1] == "de" and parts[2] == "enquanto"):
                             try:
@@ -72,7 +70,7 @@ def runCode(lines):
                             except:
                                 print("Não podes por fim de enquanto sem comecar um enquanto!")
                                 exit()
-                    elif (instruction == "senao"):
+                    elif (instruction == "senao" or instruction == "senão"):
                         if (lastCondition):
                             nestLevel = 1
                         else:
@@ -88,11 +86,11 @@ def runCode(lines):
                 else:
                     if (nestLevel > 0): #nestLevel de um se
                         if (instruction == "fim"):
-                            if (parts[1] == "de" and parts[2] == "condicao"):
+                            if (parts[1] == "de" and (parts[2] == "condicao" or parts[2] == "condição")):
                                 nestLevel -= 1
                         elif (instruction == "se"):
                             nestLevel += 1
-                        elif (instruction == "senao"):
+                        elif (instruction == "senao" or instruction == "senão"):
                             nestLevel -= 1
                     else: #nestLevel de um enquanto
                         if (instruction == "fim"):
@@ -108,6 +106,3 @@ def runCode(lines):
     
     print("Fim do programa")
     exit()
-
-lines = loadLines("")
-runCode(lines)
