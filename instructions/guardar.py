@@ -1,4 +1,5 @@
 from instructions.mathf import math
+from UI import mensagem_erro
 
 def guardar(parts, variaveis):
     if (parts[2]=="em"):
@@ -10,5 +11,7 @@ def guardar(parts, variaveis):
         parts.pop(0)
         variaveis[parts[-1]] = math(parts, variaveis)
     else:
-        print("Não podes fazer isso!")
-        exit()
+        mensagem_erro("Não podes fazer isso!")
+        return False
+
+    return True    

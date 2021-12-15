@@ -1,6 +1,9 @@
+import PySimpleGUI as sg
+
 def escrever(parts, variaveis):
     if (parts[1].startswith("'")):
         parts[1] = parts[1].replace("'","")
-        print(parts[1])
+        texto_escrito = (parts[1])
     elif (parts[1] in variaveis):
-        print(variaveis[parts[1]])
+        texto_escrito = (variaveis[parts[1]])
+    return texto_escrito

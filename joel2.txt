@@ -1,0 +1,3 @@
+escrever 'teste'
+ler a
+escrever a
