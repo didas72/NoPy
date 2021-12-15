@@ -1,28 +1,33 @@
+from math import fabs
+from UI import mensagem_erro
+
 def math(parts, variaveis):
     if (parts[0] in variaveis):
         try:
             val1 = float(variaveis[parts[0]])
         except:
-            print("A variavel", parts[0], "não contem números!")
-            exit()
+            mensagem_erro("A variavel " + str(parts[0]) + " não contem números!")
+            return False
     else:
         try:
             val1 = float(parts[0])
         except:
-            print(parts[0], "não é um número nem uma variável!")
+            mensagem_erro(str(parts[0]) + " não é um número nem uma variável!")
+            return False
     
 
     if (parts[2] in variaveis):
         try:
             val2 = float(variaveis[parts[2]])
         except:
-            print("A variavel", parts[2], "não contem números!")
-            exit()
+            mensagem_erro("A variavel " + str(parts[2]) + " não contem números!")
+            return False
     else:
         try:
             val2 = float(parts[2])
         except:
-            print(parts[2], "não é um número nem uma variável!")
+            mensagem_erro(str(parts[2]) + " não é um número nem uma variável!")
+            return False
         
 
     if (parts[1] == "mais" or parts[1] == "+"):
@@ -48,6 +53,6 @@ def math(parts, variaveis):
     elif (parts[1] == "binario_diferente" or parts[1] == "binário_diferente" or parts[1] == "^"):
         return val1 ^ val2
     else:
-        print(parts[1], "não é uma operação válida!")
-        exit()
+        mensagem_erro(str(parts[1]) + " não é uma operação válida!")
+        return False
     

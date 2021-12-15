@@ -1,12 +1,9 @@
 from UI import mensagem_erro
-import PySimpleGUI as sg
 
 def se(parts, variaveis):
     parts.pop(0)
 
-    sg.Popup("Parts=" + parts)
-
-    if (len(parts) < 4 or parts[-1] != "entao" or parts[-1] != "então"):
+    if (len(parts) < 4 or (parts[-1] != "entao" and parts[-1] != "então")):
         mensagem_erro("Um 'se' tem de ter pelo menos mais três partes e um então no fim!")
         return (True, False)
 
@@ -18,7 +15,7 @@ def se(parts, variaveis):
             if (parts[1] == "igual" or parts[1] == "diferente"):
                 val1 = variaveis[parts[0]]
             else:
-                mensagem_erro("A variavel " + parts[0] + " não contem números!")
+                mensagem_erro("A variavel " + str(parts[0]) + " não contem números!")
                 return (True, False)
     elif ((parts[1] == "igual" or parts[1] == "diferente") and parts[0].startswith("'")):
         val1 = parts[0].strip("'")
@@ -26,7 +23,7 @@ def se(parts, variaveis):
         try:
             val1 = float(parts[0])
         except:
-            mensagem_erro(parts[0] + " não é um número nem uma variável!")
+            mensagem_erro(str(parts[0]) + " não é um número nem uma variável!")
             return (True, False)      
 
     
@@ -37,7 +34,7 @@ def se(parts, variaveis):
             if ((parts[1] == "igual" or parts[1] == "diferente")):
                 val1 = variaveis[parts[-2]]
             else:
-                mensagem_erro("A variavel " + parts[-2] + " não contem números!")
+                mensagem_erro("A variavel " + str(parts[-2]) + " não contem números!")
                 return (True, False)
     elif ((parts[1] == "igual" or parts[1] == "diferente") and parts[-2].startswith("'")):
         val2 = parts[-2].strip("'")
@@ -45,7 +42,7 @@ def se(parts, variaveis):
         try:
             val2 = float(parts[-2])
         except:
-            mensagem_erro(parts[-2] + " não é um número nem uma variável!")
+            mensagem_erro(str(parts[-2]) + " não é um número nem uma variável!")
             return (True, False)
 
 
@@ -64,5 +61,5 @@ def se(parts, variaveis):
     elif (parts[1] == "diferente"):
         return (val1 != val2, True)
     else:
-        mensagem_erro(parts[1], "não é uma comparação válida!")
+        mensagem_erro(str(parts[1]) + "não é uma comparação válida!")
         return (True, False)

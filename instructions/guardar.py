@@ -10,6 +10,8 @@ def guardar(parts, variaveis):
     elif (parts[4]=="em"):
         parts.pop(0)
         variaveis[parts[-1]] = math(parts, variaveis)
+        if (variaveis[parts[-1]] == False):
+            return False
     else:
         mensagem_erro("Não podes fazer isso!")
         return False
