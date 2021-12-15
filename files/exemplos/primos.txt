@@ -27,7 +27,7 @@ enquanto testar menor numero entao
         sair
     fim de condicao
 
-    guardar testar mais 7 em testar
+    guardar testar mais 1 em testar
 
 fim de enquanto
 
