@@ -44,4 +44,5 @@ se c diferente 'joel' entao
     escrever 'd'
 fim de condicao
 
+fim:
 sair

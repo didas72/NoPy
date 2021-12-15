@@ -8,6 +8,8 @@ def runCode(lines):
     nestLevel = 0
     lastCondition = False
     loopStack = []
+    labelsFound = []
+    labelLines = []
 
     from instructions.escrever import escrever
     from instructions.ler import ler
@@ -18,6 +20,7 @@ def runCode(lines):
     while (linha < len(lines)):
         parts = []
         remain = lines[linha].strip()
+
         while True:
             if (len(remain) <= 0): break
 
@@ -42,7 +45,12 @@ def runCode(lines):
             instruction = parts[0]
 
             try:
-                if (nestLevel == 0):
+                # register label
+                if (lines[linha].endswith(":")):
+                    if (lines[linha] not in labelsFound):
+                        labelsFound.append(lines[linha].strip(":"))
+                        labelLines.append(linha)
+                elif (nestLevel == 0):
                     if (instruction == "escrever"):
                         escrever(parts, variaveis)
                     elif (instruction == "ler"):
@@ -80,6 +88,20 @@ def runCode(lines):
                         pass
                     elif (instruction == "sair"):
                         break
+                    elif (instruction == "ir"):
+                        if (parts[1] in labelsFound):
+                            linha = labelLines[labelsFound.index(parts[1])]
+                        else:
+                            found = False
+                            for cock in lines:
+                                if parts[1] + ":" in cock:
+                                    linha = lines.index(cock) - 1
+                                    found = True
+                                    break
+
+                            if (not found):
+                                print("A etiqueta", parts[1], "não foi encontrada!")
+                                exit()
                     else:
                         print(parts[0], "não é uma instrução válida! Se quiseres por um comentário, começa a linha com '!'")
                         exit()
