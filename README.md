@@ -21,6 +21,8 @@ O PseudoPython tem as seguintes instruções:
 - Senão - Se a condição de um 'se' não for verdadeira, o código do senão é executado.
 - Enquanto - Repete código enquanto uma condição for verdadeira. (Ver condicionais)
 - Fim - Quando acabas de escrever o código para um 'se' ou um 'enquanto' tens de por 'fim de condicao' e 'fim de enquanto' respetivamente. Também deves usar 'fim de condicao' para um senão.
+- Ir - Salta para uma parte do código, usando uma etiqueta.
+- Sair - Sai do programa.
 - ! - Sempre que quiseres incluir uma nota que não seja código podes fazê-lo assim: '! Nota de exemplo'. As notas (ou comentários) têm de estar na sua própria linha.
 
 ### Contas
@@ -54,3 +56,9 @@ Os condicionais que podes usar são:
 - Diferente - Funciona da mesma maneira que o igual, só que ao contrário.
 - Maior - Compara dois valores, só funciona com números.
 - Menor - Igual ao maior, só que ao contrário.
+
+### Etiquetas
+
+Para poder fazer saltos no código sem ter de por tudo dentro de 'se', podes usar etiquetas.
+
+Uma etiqueta cria-se pondo o nome seguido de dois pontos ':'. Esta estiqueta pode depois ser usada com a instrucão 'ir'.
