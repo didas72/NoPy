@@ -1,6 +1,8 @@
 import PySimpleGUI as sg
 import os
 import webbrowser
+
+from PySimpleGUI.PySimpleGUI import P
 from main import runCode
 
 dirname = os.path.dirname(__file__)
@@ -9,14 +11,14 @@ icon_tantantAn = os.path.join(dirname, "Icon.ico")
 def mensagem_erro(mensagem):
     sg.Popup(mensagem, title='Erro', modal=True, grab_anywhere=True, keep_on_top=True)
 
-def pergunta_guardar(nome_ficheiro, PseudoPy):
-    Guardar_pergunta_layout = [[sg.Text("Gostaria de guardar o programa?")],
+def pergunta_salvar(nome_ficheiro, PseudoPy):
+    Guardar_pergunta_layout = [[sg.Text("Gostaria de salvar o programa?")],
                                [sg.Column([[sg.Button("Sim"), sg.Button("Não")]], justification='center')]]
     Guardar_pergunta = sg.Window("Guardar?", Guardar_pergunta_layout, font=("Arial", 12), use_default_focus=0 , no_titlebar=True, modal=True, grab_anywhere=True, keep_on_top=True)
     while True:
         event, values = Guardar_pergunta.read()
         if event == "Sim":
-            guardar(nome_ficheiro, PseudoPy)
+            salvar(nome_ficheiro, PseudoPy)
             break
         if event == "Não":
             apagar_vazio(nome_ficheiro, ficheiro_path=False)
@@ -46,12 +48,13 @@ def abrir_ficheiro(main_window):
                 mensagem = "O ficheiro escolhido não existe"
                 mensagem_erro(mensagem)
     escolha_ficheiro.close()
-    mainwindow()
+    if event == 'Voltar':
+        mainwindow()
 
 def criarficheiro_f(main_window):
     main_window.close()
     nome_ficheiro_layout=[[sg.Text('Nome do arquivo a ser criado:'),sg.InputText()],
-            [sg.Button("Ok", bind_return_key=True),sg.Button("Voltar")] ]
+            [sg.Button("Ok", bind_return_key=True),sg.Button("Voltar")]]
     criar_ficheiro = sg.Window("Criar Ficheiro", nome_ficheiro_layout, no_titlebar=True,grab_anywhere=True, keep_on_top=True)
     while True:
         event, values = criar_ficheiro.read()
@@ -74,7 +77,23 @@ def criarficheiro_f(main_window):
                 mensagem = "Não se pode criar um ficheiro sem nome"
                 mensagem_erro(mensagem)
     criar_ficheiro.close()
-    mainwindow()
+    if event == 'Voltar':
+        mainwindow()
+
+def comparar_texto(nome_ficheiro, PseudoPy):
+    ficheiro_aberto = open(nome_ficheiro,'rt', encoding='utf-8')
+    velho_texto = ficheiro_aberto.readlines()
+    novo_texto = []
+    for letras in velho_texto:
+        nova_letra = letras. replace('\n', '')
+        novo_texto.append(nova_letra)
+    line_texto = PseudoPy['-MLINE-'].get()
+    line_texto = line_texto.splitlines()
+    if novo_texto == line_texto:
+        salvo = True
+    else:
+        salvo = False
+    return salvo
 
 def texto_ficheiro(ficheiro_path, PseudoPy):
     ficheiro_aberto = open(ficheiro_path,'rt', encoding='utf-8')
@@ -115,26 +134,30 @@ def PseudoPy_f(nome_ficheiro, main_window, ficheiro_path):
         event, values = PseudoPy.read(close=False)
         if event == sg.WINDOW_CLOSE_ATTEMPTED_EVENT or event == 'Sair':
             if ficheiro_path:
-                pergunta_guardar(ficheiro_path, PseudoPy)
+                salvo = comparar_texto(ficheiro_path, PseudoPy)
+                if not salvo:
+                    pergunta_salvar(ficheiro_path, PseudoPy)
             else:
-                pergunta_guardar(nome_ficheiro, PseudoPy)
-            #if os.path.isfile(nome_ficheiro):
-                #apagar_vazio(nome_ficheiro, ficheiro_path)
+                salvo = comparar_texto(nome_ficheiro, PseudoPy)
+                if not salvo:
+                    pergunta_salvar(nome_ficheiro, PseudoPy)
+                #if os.path.isfile(nome_ficheiro):
+                    #apagar_vazio(nome_ficheiro, ficheiro_path)
             break
         if event == 'Correr':
             from ficheiro import loadLines
             if ficheiro_path:
-                guardar(ficheiro_path, PseudoPy)
+                salvar(ficheiro_path, PseudoPy)
                 lines = loadLines(ficheiro_path)
             else:
-                guardar(nome_ficheiro, PseudoPy)
+                salvar(nome_ficheiro, PseudoPy)
                 lines = loadLines(nome_ficheiro)
             runCode(lines)
         if event == 'Guardar':
             if ficheiro_path:
-                guardar(ficheiro_path, PseudoPy)
+                salvar(ficheiro_path, PseudoPy)
             else:
-                guardar(nome_ficheiro, PseudoPy)
+                salvar(nome_ficheiro, PseudoPy)
         if event == 'Sobre...':
             webbrowser.open("http://didas72.hopto.org/pseudo_python_PT.html", new=1)
         #if event == 'Apagar':
@@ -144,20 +167,21 @@ def PseudoPy_f(nome_ficheiro, main_window, ficheiro_path):
                 #os.remove(nome_ficheiro)
         if event == 'Voltar':
             if ficheiro_path:
-                pergunta_guardar(ficheiro_path, PseudoPy)
+                pergunta_salvar(ficheiro_path, PseudoPy)
             else:
-                pergunta_guardar(nome_ficheiro, PseudoPy)
+                pergunta_salvar(nome_ficheiro, PseudoPy)
             break
     PseudoPy.close()
     if event == 'Voltar':
         mainwindow()
 
-def guardar(nome_ficheiro, PseudoPy):
+def salvar(nome_ficheiro, PseudoPy):
     save_file = open(nome_ficheiro, 'wt', encoding = 'UTF-8')
     save_file.write(PseudoPy['-MLINE-'].get())
     save_file.close()
 
 def mainwindow():
+    global icon_tantantAn
     dirname = os.path.dirname(__file__)
     Logo_tantanTAN = os.path.join(dirname, "Logo.png")
     Logo = sg.Image(filename=Logo_tantanTAN)
@@ -185,4 +209,7 @@ sg.theme_element_text_color("white")
 sg.theme_text_color("white")
 sg.theme_text_element_background_color("#333333")
 
-mainwindow()
+a = True
+while a:
+    a = False
+    mainwindow()
