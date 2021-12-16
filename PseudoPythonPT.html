@@ -1,0 +1,284 @@
+<!DOCTYPE html/>
+<!-- saved from url=(0046)http://didas72.hopto.org/pseudo_python_PT.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<style>
+		body {
+			background: #404040;
+		}
+
+		table {
+			text-align: left;
+			color: white;
+		}
+
+		h2 {
+			margin-left: 15px;
+			color: #D0D0D0;
+		}
+
+		div.content_margin {
+			padding-top: 8px;
+			padding-bottom: 8px;
+			padding-left: 8px;
+			padding-right: 8px;
+			color: white;
+		}
+
+		a {
+			color: #6699FF;
+		}
+
+		#toc_container {
+			background: #505050 none repeat scroll 0 0;
+			border: 1px solid #aaa;
+			display: table;
+			font-size: 95%;
+			margin-bottom: 1em;
+			padding: 20px;
+			width: auto;
+		}
+
+		.toc_title {
+			font-weight: 700;
+			text-align: center;
+		}
+
+		#toc_container li, #toc_container ul, #toc_container ul li{
+			list-style: outside none none !important;
+		}
+	</style>
+	<title>PseudoPython</title>
+</head>
+
+<body style="margin-left:30px">
+	<div id="content" class="content_margin">
+		<h1 align="center">PseudoPython</h1>
+		
+		<a href="https://github.com/didas72/PseudoPython">Github</a><br>
+		<div id="toc_container" style="margin-top:10px">
+		<p class="toc_title">Tabela de conteúdos</p>
+		<ul>
+		<li><a href="http://didas72.hopto.org/pseudo_python_PT.html#o%20que%20e">O que é?</a></li>
+		<li><a href="http://didas72.hopto.org/pseudo_python_PT.html#como%20funciona">Como funciona?</a></li>
+		<li><a href="http://didas72.hopto.org/pseudo_python_PT.html#contas">Contas</a></li>
+		<li><a href="http://didas72.hopto.org/pseudo_python_PT.html#condicionais">Condicionais</a></li>
+		<li><a href="http://didas72.hopto.org/pseudo_python_PT.html#etiquetas">Etiquetas</a></li>
+		<li><a href="http://didas72.hopto.org/pseudo_python_PT.html#sintaxe">Sintaxe</a></li>
+		</ul>
+		</div>
+		
+		<h2 id="o que e">O que é?</h2>
+		<ul>
+			<li>É uma linguagem de programação simples.</li>
+			<li>Aproxima-se ao portugûes para facilitar a compreensão dos conceitos base da programação.</li>
+			<li>Em todo o lado podes usar maiusculas e minusculas e vai sempre funcionar.</li>
+		</ul>
+
+		<h2 id="como funciona">Como funciona?</h2>
+		<p>O PseudoPython tem regras simples: a sintaxe.</p>
+		<ul>
+			<li>Um programa é feito de várias instruções (uma por linha). A linha deve começar com uma instrução</li>
+			<li>Depois da instrução estão as informações necessárias.</li>
+		</ul>
+		<p>O PseudoPython tem as seguintes instruções:</p>
+		<ul>
+			<li>Escrever - Escreve o valor de uma variavel ou texto no ecrã.</li>
+			<li>Ler - Pede ao usuário que introduza um valor e guarda esse valor numa variável.</li>
+			<li>Guardar - Guarda um valor numa variável. Esta instrução tem três modos:<ul>
+				<li>Valor - Guarda um valor fixo.</li>
+				<li>Variavel - Copia o valor de outra variável.</li>
+				<li>Conta - Faz uma conta e guarda o resultado.</li>
+			</ul></li>
+			<li>Se - Verifica se uma condição é verdadeira e controla que código se executa a seguir.</li>
+			<li>Senão - Se a condição de um 'se' não for verdadeira, o código do senão é executado.</li>
+			<li>Enquanto - Repete código enquanto u.a condição for verdadeira.</li>
+			<li>Fim - Quando acabas de escrever o código para um 'se' ou um 'enquanto' tens de por 'fim de condicao' e 'fim de enquanto' respetivamente. Também deves usar 'fim de condicao' para um senão.</li>
+			<li>Ir - Salta para uma parte do código, usando uma <a href="http://didas72.hopto.org/pseudo_python_PT.html#etiquetas">etiqueta</a>.</li>
+			<li>Sair - Sai do programa.</li>
+			<li>! - Sempre que quiseres incluir uma nota que não seja código podes fazê-lo assim: '! Nota de exemplo'. As notas (ou comentários) têm de estar na sua própria linha.</li>
+		</ul>
+		
+		<h2 id="contas">Contas</h2>
+		<p>O guardar pode fazer contas e guardar numa variavél.</p>
+		<p>As contas que podes fazer são:</p>
+		<ul>
+			<li>Mais (+)</li>
+			<li>Menos (-)</li>
+			<li>Vezes (*)</li>
+			<li>Dividir (/)</li>
+			<li>Resto (%)</li>
+			<li>Elevado</li>
+		</ul>
+		<p>Podes ainda fazer algumas operações nais avançadas:</p>
+		<ul>
+			<li>Binario_esquerda (&lt;&lt;)</li>
+			<li>Binario_direita (&gt;&gt;)</li>
+			<li>Binario_e (&amp;), equivalente a AND</li>
+			<li>Binario_ou (|), equivalente a OR</li>
+			<li>Binario_diferente (^), equivalente a XOR</li>
+		</ul>
+		<p>Todas as operações precisam de dois valores para funcionar. Estes podem ser números fixos ou variaveis que contêm números.</p>
+
+		<h2 id="condicionais">Condicionais</h2>
+		<p>Para controlar que partes do código são executadas a seguir, podemos usar condicionais.</p>
+		<p>Ao contrário das contas, nem todos os condicionais precisam de números para funcionar: alguns podem usar texto.</p>
+
+		<h2 id="etiquetas">Etiquetas</h2>
+		<p>Para poder fazer saltos no código sem ter de por tudo dentro de 'se', podes usar etiquetas.</p>
+		<p>Uma etiqueta cria-se pondo o nome seguido de dois pontos ':'. Esta estiqueta pode depois ser usada com a instrução 'ir'.</p>
+
+		<h2 id="sintaxe">Sintaxe</h2>
+		<p>Para tudo funcionar, a sintaxe tem de ser completamente respeitada. Aqui está uma definição mais correta da sintaxe:</p>
+		<table>
+			<tbody><tr>
+				<th>|==Instruções==|</th>
+				<th>|============Sintaxe============|</th>
+			</tr>
+			<tr>
+				<th>Escrever</th>
+				<th>Escrever &lt;valor&gt;</th>
+			</tr>
+			<tr>
+				<th>Escrever</th>
+				<th>Escrever &lt;variável&gt;</th>
+			</tr>
+			<tr>
+				<th>Ler</th>
+				<th>Ler &lt;variável&gt;</th>
+			</tr>
+			<tr>
+				<th>Guardar</th>
+				<th>Guardar &lt;valor&gt; em &lt;variável&gt;</th>
+			</tr>
+			<tr>
+				<th>Guardar</th>
+				<th>Guardar &lt;variável&gt; em &lt;variável&gt;</th>
+			</tr>
+			<tr>
+				<th>Guardar</th>
+				<th>Guardar &lt;conta&gt; em &lt;variável&gt;</th>
+			</tr>
+			<tr>
+				<th>Se</th>
+				<th>Se &lt;condição&gt; então</th>
+			</tr>
+			<tr>
+				<th>Senão</th>
+				<th>Senão</th>
+			</tr>
+			<tr>
+				<th>Enquanto</th>
+				<th>Enquanto &lt;condição&gt; então</th>
+			</tr>
+			<tr>
+				<th>Fim</th>
+				<th>Fim de condição</th>
+			</tr>
+			<tr>
+				<th>Fim</th>
+				<th>Fim de enquanto</th>
+			</tr>
+			<tr>
+				<th>Ir</th>
+				<th>Ir &lt;etiqueta&gt;</th>
+			</tr>
+			<tr>
+				<th>Sair</th>
+				<th>Sair</th>
+			</tr>
+			<tr>
+				<th>Etiqueta</th>
+				<th>&lt;etiqueta&gt;</th>
+			</tr>
+			<tr>
+				<th>|==Condições==|</th>
+				<th>|============Sintaxe============|</th>
+			</tr>
+			<tr>
+				<th>&lt;condição&gt;</th>
+				<th>&lt;valor&gt; &lt;comparação&gt; &lt;valor&gt;</th>
+			</tr>
+			<tr>
+				<th>&lt;condição&gt;</th>
+				<th>&lt;valor&gt; &lt;comparação&gt; &lt;variável&gt;</th>
+			</tr>
+			<tr>
+				<th>&lt;condição&gt;</th>
+				<th>&lt;variável&gt; &lt;comparação&gt; &lt;valor&gt;</th>
+			</tr>
+			<tr>
+				<th>&lt;condição&gt;</th>
+				<th>&lt;variável&gt; &lt;comparação&gt; &lt;variávelr&gt;</th>
+			</tr>
+			<tr>
+				<th>|===Contas===|</th>
+				<th>|============Sintaxe============|</th>
+			</tr>
+			<tr>
+				<th>&lt;conta&gt;</th>
+				<th>mais (+)</th>
+			</tr>
+			<tr>
+				<th>&lt;conta&gt;</th>
+				<th>menos (-)</th>
+			</tr>
+			<tr>
+				<th>&lt;conta&gt;</th>
+				<th>vezes (*)</th>
+			</tr>
+			<tr>
+				<th>&lt;conta&gt;</th>
+				<th>dividir (/)</th>
+			</tr>
+			<tr>
+				<th>&lt;conta&gt;</th>
+				<th>resto (%)</th>
+			</tr>
+			<tr>
+				<th>&lt;conta&gt;</th>
+				<th>Binário_esquerda (&lt;&lt;)</th>
+			</tr>
+			<tr>
+				<th>&lt;conta&gt;</th>
+				<th>Binário_direita (&gt;&gt;)</th>
+			</tr>
+			<tr>
+				<th>&lt;conta&gt;</th>
+				<th>Binário_e (&amp;)</th>
+			</tr>
+			<tr>
+				<th>&lt;conta&gt;</th>
+				<th>Binário_ou (|)</th>
+			</tr>
+			<tr>
+				<th>&lt;conta&gt;</th>
+				<th>Binário_diferente (^)</th>
+			</tr>
+			<tr>
+				<th>|=Comparações=|</th>
+				<th>|============Sintaxe============|</th>
+			</tr>
+			<tr>
+				<th>&lt;comparação&gt;</th>
+				<th>igual</th>
+			</tr>
+			<tr>
+				<th>&lt;comparação&gt;</th>
+				<th>diferente</th>
+			</tr>
+			<tr>
+				<th>&lt;comparação&gt;</th>
+				<th>maior</th>
+			</tr>
+			<tr>
+				<th>&lt;comparação&gt;</th>
+				<th>menor</th>
+			</tr>
+		</tbody></table>
+		
+		<div align="center"><br><a href="http://didas72.hopto.org/index.html">Main page</a></div>
+	</div>
+
+
+</body></html>
