@@ -1,5 +1,8 @@
 from math import fabs
-from UI import mensagem_erro
+import PySimpleGUI as sg
+
+def mensagem_erro(mensagem):
+    sg.Popup(mensagem, title='Erro', modal=True, grab_anywhere=True, keep_on_top=True)
 
 def math(parts, variaveis):
     if (parts[0] in variaveis):

@@ -1,5 +1,5 @@
 from instructions.mathf import math
-from UI import mensagem_erro
+import PySimpleGUI as sg
 
 def guardar(parts, variaveis):
     if (parts[2]=="em"):
@@ -13,7 +13,7 @@ def guardar(parts, variaveis):
         if (variaveis[parts[-1]] == False):
             return False
     else:
-        mensagem_erro("Não podes fazer isso!")
+        sg.Popup("Não podes fazer isso!", title='Erro', modal=True, grab_anywhere=True, keep_on_top=True)
         return False
 
     return True    
