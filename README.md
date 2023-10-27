@@ -2,6 +2,10 @@
 ## Arquivado
 Este repositório foi arquivado o que implica que não será modificável. O estado atual do projeto é como ficará.
 
+## Contribuições
+-Helena Oliveira
+-Teresa Vilela
+
 ## O que é?
 - É uma linguagem de programação simples .
 - Aproxima-se do português para facilitar a compreensão dos conceitos base da programação.
